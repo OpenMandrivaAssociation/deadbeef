@@ -3,12 +3,12 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
-Version:	0.3.2
-Release:	%mkrel 2
+Version:	0.4.4
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
-Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.gz
+Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
 BuildRequires:	libalsa-devel
 BuildRequires:	gtk2-devel
 BuildRequires:	libsamplerate-devel
@@ -69,18 +69,22 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog
+%doc AUTHORS ChangeLog COPYING.GPLv2 COPYING.LGPLv2.1
+%doc about.txt help.txt translators.txt
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/pixmaps
 %{_bindir}/%{name}
-%{_libdir}/%{name}/*.so.0*
+%{_libdir}/%{name}/*.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/pixmaps/*.png
+%{_datadir}/%{name}/pixmaps/noartwork.jpg
 %{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/scalable/apps/deadbeef.svg
 
 %files devel
 %defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
-%{_libdir}/%{name}/*.so
 %{_libdir}/%{name}/*.la
+
+
