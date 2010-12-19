@@ -4,7 +4,7 @@
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
 Version:	0.4.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
@@ -21,6 +21,7 @@ BuildRequires:	libflac-devel
 BuildRequires:	libwavpack-devel
 BuildRequires:	libcdio-devel
 BuildRequires:	libcddb-devel
+BuildRequires:	intltool >= 0.40
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
