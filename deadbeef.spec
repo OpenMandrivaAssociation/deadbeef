@@ -9,6 +9,7 @@ License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
+Patch0:		deadbeef-0.5.0-string_format.patch
 BuildRequires:	libalsa-devel
 BuildRequires:	gtk2-devel
 BuildRequires:	libsamplerate-devel
@@ -22,6 +23,8 @@ BuildRequires:	libwavpack-devel
 BuildRequires:	libcdio-devel
 BuildRequires:	libcddb-devel
 BuildRequires:	intltool >= 0.40
+BuildRequires:	libzip
+BuildRequires:	libstdc++-static-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -49,6 +52,7 @@ Development files and headers for %{name}.
 
 %prep
 %setup -q %{name}-%{version}
+%patch0 -p1
 
 %build
 %configure2_5x \
@@ -81,6 +85,7 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %{_datadir}/%{name}/pixmaps/noartwork.jpg
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/scalable/apps/deadbeef.svg
+%{_libdir}/%{name}/convpresets/*.txt
 
 %files devel
 %defattr(-,root,root)
