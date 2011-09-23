@@ -23,8 +23,13 @@ BuildRequires:	libwavpack-devel
 BuildRequires:	libcdio-devel
 BuildRequires:	libcddb-devel
 BuildRequires:	intltool >= 0.40
-BuildRequires:	libzip
+BuildRequires:	libzip-devel
 BuildRequires:	libstdc++-static-devel
+BuildRequires:	dbus-devel
+BuildRequires:	libimlib2-devel
+BuildRequires:	libjpeg-devel
+BuildRequires:	libpulseaudio-devel
+BuildRequires:	libfaad2-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -56,7 +61,8 @@ Development files and headers for %{name}.
 
 %build
 %configure2_5x \
-	--disable-static
+	--disable-static \
+	--disable-rpath
 
 %make
 
@@ -92,5 +98,3 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 %{_libdir}/%{name}/*.la
-
-
