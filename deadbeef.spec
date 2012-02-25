@@ -1,15 +1,15 @@
 # (tpg) do not provide plugins
 %define _provides_exceptions *.so.0\\|
+%define prel beta1
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
-Version:	0.5.1
-Release:	%mkrel 4
+Version:	0.5.2
+Release:	%mkrel -c %prel 1
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
-Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
-Patch0:		deadbeef-0.5.0-string_format.patch
+Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}-%prel.tar.bz2
 BuildRequires:	libalsa-devel
 BuildRequires:	gtk2-devel
 BuildRequires:	libsamplerate-devel
@@ -30,10 +30,13 @@ BuildRequires:	libimlib2-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpulseaudio-devel
 BuildRequires:	libfaad2-devel
+BuildRequires:	bison
+BuildRequires:	yasm
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-DeaDBeeF is an audio player for GNU/Linux systems with X11 written in C and C++.
+DeaDBeeF is an audio player for GNU/Linux systems with 
+X11 written in C and C++.
 
 Features:
 * minimal depends
@@ -56,8 +59,7 @@ Requires:	%{name} = %{version}-%{release}
 Development files and headers for %{name}.
 
 %prep
-%setup -q %{name}-%{version}
-%patch0 -p1
+%setup -qn %{name}-%{version}-%prel
 
 %build
 %configure2_5x \
@@ -73,7 +75,7 @@ Development files and headers for %{name}.
 
 rm -rf %{buildroot}%{_docdir}/%{name}
 
-%find_lang %{name}
+%find_lang %{name} %{name}.lang
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
