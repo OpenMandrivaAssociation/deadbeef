@@ -26,7 +26,7 @@ BuildRequires:	intltool >= 0.40
 BuildRequires:	libzip-devel
 BuildRequires:	libstdc++-static-devel
 BuildRequires:	dbus-devel
-BuildRequires:	libimlib2-devel
+BuildRequires:	imlib2-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpulseaudio-devel
 BuildRequires:	libfaad2-devel
