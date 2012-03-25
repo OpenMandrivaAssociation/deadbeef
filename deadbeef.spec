@@ -1,15 +1,14 @@
 # (tpg) do not provide plugins
 %define _provides_exceptions *.so.0\\|
-%define prel beta1
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
 Version:	0.5.2
-Release:	%mkrel -c %prel 1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
-Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}-%prel.tar.bz2
+Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
 BuildRequires:	libalsa-devel
 BuildRequires:	gtk2-devel
 BuildRequires:	libsamplerate-devel
@@ -29,13 +28,13 @@ BuildRequires:	dbus-devel
 BuildRequires:	imlib2-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpulseaudio-devel
-BuildRequires:	libfaad2-devel
+# Perhaps we shouldn't use this patented codec in Contrib
+# BuildRequires:	libfaad2-devel
 BuildRequires:	bison
 BuildRequires:	yasm
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-DeaDBeeF is an audio player for GNU/Linux systems with 
+DeaDBeeF is an audio player for GNU/Linux systems with
 X11 written in C and C++.
 
 Features:
@@ -59,7 +58,7 @@ Requires:	%{name} = %{version}-%{release}
 Development files and headers for %{name}.
 
 %prep
-%setup -qn %{name}-%{version}-%prel
+%setup -q
 
 %build
 %configure2_5x \
@@ -69,19 +68,16 @@ Development files and headers for %{name}.
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
+%__rm -rf %{buildroot}
 %makeinstall_std
+%__rm -rf %{buildroot}%{_docdir}/%{name}
 
-rm -rf %{buildroot}%{_docdir}/%{name}
-
-%find_lang %{name} %{name}.lang
+%find_lang %{name}
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING.GPLv2 COPYING.LGPLv2.1
 %doc about.txt help.txt translators.txt
 %dir %{_datadir}/%{name}
@@ -96,7 +92,6 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %{_libdir}/%{name}/convpresets/*.txt
 
 %files devel
-%defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 %{_libdir}/%{name}/*.la
