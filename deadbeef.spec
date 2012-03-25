@@ -12,7 +12,7 @@ Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.b
 BuildRequires:	libalsa-devel
 BuildRequires:	gtk2-devel
 BuildRequires:	libsamplerate-devel
-BuildRequires:	libsndfile-devel
+BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	libvorbis-devel
 BuildRequires:	libcurl-devel
 BuildRequires:	libmad-devel
