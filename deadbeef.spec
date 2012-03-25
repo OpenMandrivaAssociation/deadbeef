@@ -94,4 +94,7 @@ Development files and headers for %{name}.
 %files devel
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
+%if %{mdvver} < 201200
 %{_libdir}/%{name}/*.la
+%endif
+
