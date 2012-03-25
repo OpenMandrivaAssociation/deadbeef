@@ -27,7 +27,7 @@ BuildRequires:	libstdc++-static-devel
 BuildRequires:	dbus-devel
 BuildRequires:	imlib2-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	libpulseaudio-devel
+BuildRequires:	pkgconfig(libpulse)
 # Perhaps we shouldn't use this patented codec in Contrib
 # BuildRequires:	libfaad2-devel
 BuildRequires:	bison
