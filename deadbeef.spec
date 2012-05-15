@@ -3,8 +3,8 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
-Version:	0.5.2
-Release:	%mkrel 1
+Version:	0.5.4
+Release:	1
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
@@ -68,14 +68,10 @@ Development files and headers for %{name}.
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
-%__rm -rf %{buildroot}%{_docdir}/%{name}
+rm -rf %{buildroot}%{_docdir}/%{name}
 
-%find_lang %{name}
-
-%clean
-%__rm -rf %{buildroot}
+%find_lang %{name} %{name}.lang
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING.GPLv2 COPYING.LGPLv2.1
@@ -97,4 +93,3 @@ Development files and headers for %{name}.
 %if %{mdvver} < 201200
 %{_libdir}/%{name}/*.la
 %endif
-
