@@ -82,7 +82,6 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %{_libdir}/%{name}/*.so*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/pixmaps/*.png
-%{_datadir}/%{name}/pixmaps/noartwork.jpg
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/scalable/apps/deadbeef.svg
 %{_libdir}/%{name}/convpresets/*.txt
