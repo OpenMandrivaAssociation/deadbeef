@@ -20,7 +20,7 @@
 %endif
 
 Name:		deadbeef
-Version:	0.5.5
+Version:	0.5.6
 Release:	1%{?extrarelsuffix}
 Summary:	Ultimate music player for GNU/Linux
 License:	GPLv2+
@@ -28,7 +28,7 @@ Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(alsa)
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(samplerate)
 BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	pkgconfig(vorbis)
@@ -84,6 +84,8 @@ Development files and headers for %{name}.
 # http://code.google.com/p/ddb/issues/detail?id=812
 # So no wma and alac support for a while
 %configure2_5x \
+	--enable-gtk3 \
+	--disable-gtk2 \
 	--disable-static \
 	--disable-ffmpeg \
 %if !%{with_faad}
@@ -116,4 +118,52 @@ Development files and headers for %{name}.
 %files devel
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
+
+%changelog
+* Thu Apr 12 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 0.5.2-1mdv2012.0
+- New version 0.5.2
+- Add PLF-related parts in spec
+- Build only PLF-featured version with faad2 support
+
+* Sat Feb 25 2012 Tomasz Pawel Gajc <tpg@mandriva.org> 0.5.2-0.beta1.1mdv2012.0
++ Revision: 780738
+- update to new version 0.5.2-beta1
+- add buildrequires on yasm and bison
+- drop patch 0, applied by upstream
+
+  + Götz Waschk <waschk@mandriva.org>
+    - rebuild for new libcdio
+
+* Fri Sep 23 2011 Tomasz Pawel Gajc <tpg@mandriva.org> 0.5.1-3
++ Revision: 701114
+- rebuild
+
+* Fri Sep 23 2011 Tomasz Pawel Gajc <tpg@mandriva.org> 0.5.1-2
++ Revision: 701086
+- nuke rpath
+- add missing buildrequires on libzip-devel dbus-devel libimlib2-devel libjpeg-devel libpulseaudio-devel libfaad2-devel
+
+* Tue Jun 14 2011 Александр Казанцев <kazancas@mandriva.org> 0.5.1-1
++ Revision: 685144
+- update to version 0.5.1
+
+* Fri May 20 2011 Александр Казанцев <kazancas@mandriva.org> 0.5.0-2
++ Revision: 676348
+- new version 0.5.0
+
+* Sun Dec 19 2010 Shlomi Fish <shlomif@mandriva.org> 0.4.4-2mdv2011.0
++ Revision: 622922
+- Add a dependency on intltool - it was missing
+- update to version 0.4.4
+- fix plugin loading by moving *.so files from devel package to main
+- fix help menu by packaging doc files
+- contributed by BALATON Zoltan.
+
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.3.2-2mdv2011.0
++ Revision: 610220
+- rebuild
+
+  + Tomasz Pawel Gajc <tpg@mandriva.org>
+    - add source and spec files
+    - Created package structure for deadbeef.
 
