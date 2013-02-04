@@ -27,6 +27,8 @@ License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
+BuildRequires:	pkgconfig(sm)
+BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(samplerate)
