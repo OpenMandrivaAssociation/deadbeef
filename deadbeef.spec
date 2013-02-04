@@ -21,7 +21,7 @@
 
 Name:		deadbeef
 Version:	0.5.6
-Release:	1%{?extrarelsuffix}
+Release:	2%{?extrarelsuffix}
 Summary:	Ultimate music player for GNU/Linux
 License:	GPLv2+
 Group:		Sound
