@@ -27,6 +27,7 @@ License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
+Patch0:		deadbeef-0.5.6-add-missing-linkage.patch
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(alsa)
@@ -80,6 +81,8 @@ Development files and headers for %{name}.
 
 %prep
 %setup -q
+%patch0 -p1 -b .linkage~
+autoreconf -fi
 
 %build
 # ffmpeg >= 0.11.x support is dropped in upstream:

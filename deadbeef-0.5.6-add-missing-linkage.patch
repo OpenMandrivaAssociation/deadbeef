@@ -1,0 +1,52 @@
+--- deadbeef-0.5.6/plugins/alac/Makefile.am~	2012-10-05 17:35:49.000000000 +0200
++++ deadbeef-0.5.6/plugins/alac/Makefile.am	2013-02-14 01:29:17.740507926 +0100
+@@ -15,7 +15,7 @@ alac.c decomp.h demux.c demux.h stream.c
+ 
+ alac_la_LDFLAGS = -module
+ 
+-alac_la_LIBADD = $(LDADD) $(FAAD2_LIBS)
++alac_la_LIBADD = $(LDADD) $(FAAD2_LIBS) -lm
+ AM_CFLAGS = $(CFLAGS) -std=c99 -DUSE_MP4FF -DUSE_TAGGING -I../libmp4ff
+ endif
+ 
+--- deadbeef-0.5.6/plugins/flac/Makefile.am~	2011-03-03 21:06:15.000000000 +0100
++++ deadbeef-0.5.6/plugins/flac/Makefile.am	2013-02-14 01:24:48.542872013 +0100
+@@ -4,6 +4,6 @@ pkglib_LTLIBRARIES = flac.la
+ flac_la_SOURCES = flac.c
+ flac_la_LDFLAGS = -module
+ 
+-flac_la_LIBADD = $(LDADD) $(FLAC_LIBS)
++flac_la_LIBADD = $(LDADD) $(FLAC_LIBS) -lm
+ AM_CFLAGS = $(CFLAGS) -std=c99
+ endif
+--- deadbeef-0.5.6/plugins/gtkui/Makefile.am~	2012-10-19 17:58:50.000000000 +0200
++++ deadbeef-0.5.6/plugins/gtkui/Makefile.am	2013-02-14 01:29:40.164688782 +0100
+@@ -8,7 +8,7 @@ SM_SOURCES = smclient/eggdesktopfile.h\
+ 	smclient/eggdesktopfile.c\
+ 	smclient/eggsmclient-xsmp.c\
+ 	smclient/eggsmclient.c
+-SM_LIBADD = $(SM_LIBS) $(ICE_LIBS)
++SM_LIBADD = $(SM_LIBS) $(ICE_LIBS) -lm
+ SM_CFLAGS = -DEGG_SM_CLIENT_BACKEND_XSMP -DG_LOG_DOMAIN=\""deadbeef"\"
+ endif
+ endif
+--- deadbeef-0.5.6/plugins/sndfile/Makefile.am~	2011-03-03 21:06:17.000000000 +0100
++++ deadbeef-0.5.6/plugins/sndfile/Makefile.am	2013-02-14 01:29:53.772821011 +0100
+@@ -4,6 +4,6 @@ pkglib_LTLIBRARIES = sndfile.la
+ sndfile_la_SOURCES = sndfile.c
+ sndfile_la_LDFLAGS = -module
+ 
+-sndfile_la_LIBADD = $(LDADD) $(SNDFILE_LIBS)
++sndfile_la_LIBADD = $(LDADD) $(SNDFILE_LIBS) -lm
+ AM_CFLAGS = $(CFLAGS) -std=c99
+ endif
+--- deadbeef-0.5.6/plugins/vorbis/Makefile.am~	2012-07-30 20:52:27.000000000 +0200
++++ deadbeef-0.5.6/plugins/vorbis/Makefile.am	2013-02-14 01:24:33.596695313 +0100
+@@ -4,6 +4,6 @@ pkglib_LTLIBRARIES = vorbis.la
+ vorbis_la_SOURCES = vorbis.c vcedit.c vcedit.h vceditaux.h i18n.h
+ vorbis_la_LDFLAGS = -module
+ 
+-vorbis_la_LIBADD = $(LDADD) $(VORBIS_LIBS) -lc
++vorbis_la_LIBADD = $(LDADD) $(VORBIS_LIBS) -logg -lm -lc
+ AM_CFLAGS = $(CFLAGS) -std=c99
+ endif
