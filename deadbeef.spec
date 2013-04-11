@@ -22,7 +22,7 @@
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
 Version:	0.5.6
-Release:	3%{?extrarelsuffix}
+Release:	4%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
@@ -37,7 +37,7 @@ BuildRequires:	libstdc++-static-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(flac)
-BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(imlib2)
 BuildRequires:	pkgconfig(libcdio)
