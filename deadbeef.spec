@@ -22,7 +22,7 @@
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
 Version:	0.5.6
-Release:	4%{?extrarelsuffix}
+Release:	5%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
@@ -38,7 +38,6 @@ BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(flac)
 BuildRequires:	pkgconfig(gtk+-2.0)
-BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(imlib2)
 BuildRequires:	pkgconfig(libcdio)
@@ -91,8 +90,8 @@ autoreconf -fi
 # http://code.google.com/p/ddb/issues/detail?id=812
 # So no wma and alac support for a while
 %configure2_5x \
-	--enable-gtk3 \
-	--disable-gtk2 \
+	--enable-gtk2 \
+	--disable-gtk3 \
 	--disable-static \
 	--disable-ffmpeg \
 %if !%{with_faad}
