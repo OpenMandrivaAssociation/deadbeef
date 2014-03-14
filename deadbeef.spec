@@ -21,8 +21,8 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
-Version:	0.5.6
-Release:	5%{?extrarelsuffix}
+Version:	0.6.1
+Release:	1%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
@@ -34,6 +34,7 @@ BuildRequires:	intltool >= 0.40
 BuildRequires:	yasm
 BuildRequires:	jpeg-devel
 BuildRequires:	libstdc++-static-devel
+BuildRequires:	ffmpeg-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(flac)
@@ -93,7 +94,8 @@ autoreconf -fi
 	--enable-gtk2 \
 	--disable-gtk3 \
 	--disable-static \
-	--disable-ffmpeg \
+	--enable-ffmpeg \
+    --disable-rpath \
 %if !%{with_faad}
 	--disable-aac
 %endif
