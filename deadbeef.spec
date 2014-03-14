@@ -27,7 +27,7 @@ License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
-Patch0:		deadbeef-0.5.6-add-missing-linkage.patch
+#Patch0:		deadbeef-0.5.6-add-missing-linkage.patch
 
 BuildRequires:	bison
 BuildRequires:	intltool >= 0.40
