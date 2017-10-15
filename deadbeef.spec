@@ -52,6 +52,7 @@ BuildRequires:	pkgconfig(sm)
 BuildRequires:	pkgconfig(sndfile)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(wavpack)
+BuildRequires:	pkgconfig(jansson)
 %if %{with_faad}
 BuildRequires:	libfaad2-devel
 %endif
