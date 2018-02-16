@@ -19,6 +19,8 @@
 %define extrarelsuffix plf
 %endif
 
+%define _disable_rebuild_configure 1
+
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
 Version:	0.7.2
@@ -27,7 +29,9 @@ License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
-#Patch0:		deadbeef-0.5.6-add-missing-linkage.patch
+# remove objc code built on mac only causing libtool to get confused
+# something like this has already been done upstream
+Patch1:		deadbeef-0.7.2-libtool.patch
 
 BuildRequires:	bison
 BuildRequires:	intltool >= 0.40
@@ -63,7 +67,7 @@ X11 written in C and C++.
 
 Features:
 * minimal depends
-* native GTK2 GUI
+* native GTK3 GUI
 * cuesheet support
 * mp3, ogg, flac, ape and other popular formats
 * chiptune formats with subtunes
@@ -85,20 +89,24 @@ Development files and headers for %{name}.
 %prep
 %setup -q
 %apply_patches
-autoreconf -fi
+autoreconf -fiv
+
 
 %build
 # ffmpeg >= 0.11.x support is dropped in upstream:
 # http://code.google.com/p/ddb/issues/detail?id=812
 # So no wma and alac support for a while
+
 %configure \
+	--disable-gtk2 \
 	--enable-gtk3 \
 	--disable-static \
 	--enable-ffmpeg \
     --disable-rpath \
 %if !%{with_faad}
-	--disable-aac
+	--disable-aac \
 %endif
+    LIBS='-logg -lm'
 
 %make
 
@@ -114,8 +122,7 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/pixmaps
 %{_bindir}/%{name}
-%{_libdir}/%{name}/*.so.*
-%{_libdir}/%{name}/convpresets/*.txt
+%{_libdir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/pixmaps/*.png
 %{_iconsdir}/hicolor/*/apps/*.png
@@ -124,5 +131,3 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %files devel
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
-%{_libdir}/%{name}/*.so
-
