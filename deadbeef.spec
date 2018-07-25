@@ -24,7 +24,7 @@
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
 Version:	0.7.2
-Release:	1%{?extrarelsuffix}
+Release:	2%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
