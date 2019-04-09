@@ -23,15 +23,15 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
-Version:	0.7.2
-Release:	2%{?extrarelsuffix}
+Version:	1.8.0
+Release:	1%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
 Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.bz2
 # remove objc code built on mac only causing libtool to get confused
 # something like this has already been done upstream
-Patch1:		deadbeef-0.7.2-libtool.patch
+#Patch1:		deadbeef-0.7.2-libtool.patch
 
 BuildRequires:	bison
 BuildRequires:	intltool >= 0.40
