@@ -89,7 +89,7 @@ Development files and headers for %{name}.
 %prep
 %setup -q
 %apply_patches
-autoreconf -fiv
+#autoreconf -fiv
 
 
 %build
