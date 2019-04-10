@@ -97,6 +97,7 @@ Development files and headers for %{name}.
 # http://code.google.com/p/ddb/issues/detail?id=812
 # So no wma and alac support for a while
 
+./autogen.sh
 %configure \
 	--disable-gtk2 \
 	--enable-gtk3 \
