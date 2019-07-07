@@ -23,12 +23,12 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:		deadbeef
-Version:	1.8.0
+Version:	1.8.1
 Release:	1%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
 Url:		http://deadbeef.sourceforge.net
-Source0:	http://sourceforge.net/projects/deadbeef/files/%{name}-%{version}.tar.gz
+Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}/%{name}-%{version}.tar.bz2/
 # remove objc code built on mac only causing libtool to get confused
 # something like this has already been done upstream
 #Patch1:		deadbeef-0.7.2-libtool.patch
@@ -109,10 +109,10 @@ Development files and headers for %{name}.
 %endif
     LIBS='-logg -lm'
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 rm -rf %{buildroot}%{_docdir}/%{name}
 
 %find_lang %{name}
