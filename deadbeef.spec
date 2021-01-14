@@ -105,6 +105,7 @@ Development files and headers for %{name}.
 	--disable-static \
 	--enable-ffmpeg \
 	--disable-lfm \
+	--disable-notify \
     --disable-rpath \
 %if !%{with_faad}
 	--disable-aac \
