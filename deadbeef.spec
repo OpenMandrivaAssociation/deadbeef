@@ -104,6 +104,7 @@ Development files and headers for %{name}.
 	--enable-gtk3 \
 	--disable-static \
 	--enable-ffmpeg \
+	--disable-lfm \
     --disable-rpath \
 %if !%{with_faad}
 	--disable-aac \
