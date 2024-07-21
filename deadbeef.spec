@@ -32,6 +32,7 @@ Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}
 # remove objc code built on mac only causing libtool to get confused
 # something like this has already been done upstream
 #Patch1:		deadbeef-0.7.2-libtool.patch
+Patch0:		https://patch-diff.githubusercontent.com/raw/DeaDBeeF-Player/deadbeef/pull/3101.patch
 
 BuildRequires:	bison
 BuildRequires:	intltool >= 0.40
