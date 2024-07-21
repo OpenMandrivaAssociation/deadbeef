@@ -93,7 +93,6 @@ Development files and headers for %{name}.
 %prep
 %setup -q
 %autopatch -p1
-%autoreconf -fiv
 
 
 %build
@@ -102,6 +101,7 @@ Development files and headers for %{name}.
 # So no wma and alac support for a while
 
 #/autogen.sh
+%autoreconf
 %configure \
 	--disable-gtk2 \
 	--enable-gtk3 \
