@@ -39,6 +39,7 @@ BuildRequires:	intltool >= 0.40
 BuildRequires:	yasm
 BuildRequires:	jpeg-devel
 BuildRequires:	libdispatch-devel
+BuildRequires:	%{_lib}BlocksRuntime0
 BuildRequires:	libstdc++-static-devel
 BuildRequires:	ffmpeg-devel
 BuildRequires:	pkgconfig(alsa)
