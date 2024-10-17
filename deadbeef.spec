@@ -27,7 +27,7 @@ Version:	1.9.6
 Release:	1%{?extrarelsuffix}
 License:	GPLv2+
 Group:		Sound
-Url:		http://deadbeef.sourceforge.net
+Url:		https://deadbeef.sourceforge.net
 Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}/%{name}-%{version}.tar.bz2
 # remove objc code built on mac only causing libtool to get confused
 # something like this has already been done upstream
