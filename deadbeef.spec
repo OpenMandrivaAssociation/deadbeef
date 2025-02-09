@@ -34,6 +34,7 @@ Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}
 #Patch1:		deadbeef-0.7.2-libtool.patch
 Patch0:		https://patch-diff.githubusercontent.com/raw/DeaDBeeF-Player/deadbeef/pull/3101.patch
 
+Requires:	lib64flac
 BuildRequires:	bison
 BuildRequires:	intltool >= 0.40
 BuildRequires:	yasm
