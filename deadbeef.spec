@@ -43,6 +43,7 @@ BuildRequires:	libdispatch-devel
 BuildRequires:	%{_lib}BlocksRuntime0
 BuildRequires:	libstdc++-static-devel
 BuildRequires:	ffmpeg-devel
+BuildRequires:	locales-extra-charsets
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(flac)
