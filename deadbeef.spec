@@ -19,20 +19,18 @@
 %define	with_faad 0
 %endif
 
-%global	_disable_rebuild_configure 1
+%global	_disable_rebuild_configure 0
 
 Summary:	Ultimate music player for GNU/Linux
-Name:		deadbeef
+Name:	deadbeef
 Version:	1.10.0
-Release:	1%{?extrarelsuffix}
+Release:	2%{?extrarelsuffix}
 License:	zlib
 Group:	Sound
 Url:		https://deadbeef.sourceforge.net
 Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}/%{name}-%{version}.tar.bz2
-# remove objc code built on mac only causing libtool to get confused
-# something like this has already been done upstream
-#Patch1:		deadbeef-0.7.2-libtool.patch
-#Patch0:		https://patch-diff.githubusercontent.com/raw/DeaDBeeF-Player/deadbeef/pull/3101.patch
+# Aarch64 does not support sse3
+Patch0:		deadbeef-1.10.0-drop-sse3-from-libretro-plugin.patch
 BuildRequires:	bison
 BuildRequires:	gettext
 BuildRequires:	intltool >= 0.40
