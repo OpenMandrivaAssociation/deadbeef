@@ -31,6 +31,11 @@ Url:		https://deadbeef.sourceforge.net
 Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}/%{name}-%{version}.tar.bz2
 # Aarch64 does not support sse3
 Patch0:		deadbeef-1.10.0-drop-sse3-from-libretro-plugin.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	gettext
 BuildRequires:	intltool >= 0.40
