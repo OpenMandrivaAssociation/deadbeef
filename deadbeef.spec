@@ -23,14 +23,14 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:	deadbeef
-Version:	1.10.0
-Release:	2%{?extrarelsuffix}1
+Version:	1.10.1
+Release:	1%{?extrarelsuffix}1
 License:	zlib
 Group:	Sound
 Url:		https://deadbeef.sourceforge.net
 Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}/%{name}-%{version}.tar.bz2
-# Aarch64 does not support sse3
-Patch0:		deadbeef-1.10.0-drop-sse3-from-libretro-plugin.patch
+# Aarch64 does not support sse3 - 1.10.1 tests for sse3 support: perhaps needed no more
+# Patch0:		deadbeef-1.10.0-drop-sse3-from-libretro-plugin.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
@@ -102,6 +102,7 @@ This package is in restricted repo because it uses the patented faad codec.
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/pixmaps
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{name}_enqueue.desktop
 %{_datadir}/%{name}/pixmaps/*.png
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
@@ -125,6 +126,7 @@ Development files and headers for %{name}.
 %prep
 %autosetup -p1
 
+
 %build
 export LDFLAGS="%{ldflags} -lm -logg"
 %configure	--disable-static \
@@ -134,10 +136,10 @@ export LDFLAGS="%{ldflags} -lm -logg"
 	--enable-ffmpeg \
 	--disable-lfm \
 	--disable-notify \
-    --disable-rpath \
 %if !%{with_faad}
 	--disable-aac \
 %endif
+    --disable-rpath
 
 %make_build
 
