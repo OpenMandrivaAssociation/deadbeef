@@ -23,7 +23,7 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:	deadbeef
-Version:	1.10.1
+Version:	1.10.2
 Release:	1%{?extrarelsuffix}1
 License:	zlib
 Group:	Sound
@@ -33,14 +33,14 @@ Source0:	https://sourceforge.net/projects/deadbeef/files/travis/linux/%{version}
 # Patch0:		deadbeef-1.10.0-drop-sse3-from-libretro-plugin.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
-BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	gettext
 BuildRequires:	intltool >= 0.40
 BuildRequires:	%{_lib}BlocksRuntime0
+BuildRequires:	libtool-base
 BuildRequires:	locales-extra-charsets
+BuildRequires:	make
+BuildRequires:	slibtool
 BuildRequires:	yasm
 BuildRequires:	libdispatch-devel
 BuildRequires:	libstdc++-static-devel
