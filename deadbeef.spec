@@ -23,8 +23,9 @@
 
 Summary:	Ultimate music player for GNU/Linux
 Name:	deadbeef
-Version:	1.10.2
-Release:	1%{?extrarelsuffix}1
+Version:	1.10.3
+#Release:	1%%{?extrarelsuffix}1
+Release:	1
 License:	zlib
 Group:	Sound
 Url:		https://deadbeef.sourceforge.net
@@ -47,9 +48,7 @@ BuildRequires:	libstdc++-static-devel
 BuildRequires:	pkgconfig(adplug)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(dbus-1)
-%if %{with_faad}
 BuildRequires:	pkgconfig(faad2)
-%endif
 BuildRequires:	pkgconfig(flac)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.10
@@ -89,10 +88,7 @@ Features:
 * mp3, ogg, flac, ape and other popular formats;
 * chiptune formats with subtunes;
 * song-length databases;
-* small memory footprint-
-%if %{build_plf}
-This package is in restricted repo because it uses the patented faad codec.
-%endif
+* small memory footprint.
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING.GPLv2 COPYING.LGPLv2.1
@@ -126,6 +122,10 @@ Development files and headers for %{name}.
 %prep
 %autosetup -p1
 
+# Fix FSF address
+sed -i 's/51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA/31 Milk Street, # 960789, Boston, MA 02196, USA/g' COPYING.GPLv2
+sed -i 's/51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA/31 Milk Street, # 960789, Boston, MA 02196, USA/g' COPYING.LGPLv2.1
+
 
 %build
 export LDFLAGS="%{ldflags} -lm -logg"
@@ -136,9 +136,7 @@ export LDFLAGS="%{ldflags} -lm -logg"
 	--enable-ffmpeg \
 	--disable-lfm \
 	--disable-notify \
-%if !%{with_faad}
-	--disable-aac \
-%endif
+	--enable-aac \
     --disable-rpath
 
 %make_build
